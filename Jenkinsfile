@@ -1,14 +1,24 @@
 pipeline {
     agent any
-    stages{
+    stages {
+         stage('first'){
+          steps {
+                echo "Hello first"
+                sh 'hostname -i'
+            }
+        }
+    
         stage('build'){
             steps {
-                retry (3){
-                    echo "this is for retry example"
-                    error "this is error from retry example"
+                script {
+                    def course ="k8s"
+                    if(course == "k8s")
+                    println("Welcome to ${course} k8s")
+                    else
+                    println("Do not have ${course}")
                 }
                 
             }
-        }
+        } 
     }
-}
+}   
