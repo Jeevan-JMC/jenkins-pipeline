@@ -9,14 +9,10 @@ pipeline {
             }
         }
     
-        stage('build'){
+        stage('second'){
             steps {
-                script {
-                    def course ="k8s"
-                    if(course == "k8s")
-                    println("Welcome to ${course} k8s")
-                    else
-                    println("Do not have ${course}")
+                echo "Hello second"
+                sh 'hostname -i'
                 }
                 
             }
